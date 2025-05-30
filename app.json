@@ -1,0 +1,52 @@
+{
+  "expo": {
+    "name": "The Soiree",
+    "slug": "thesoiree",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/logo-round.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff",
+      "updates": {
+        "enabled": false
+      }
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/logo-round.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.nikescateringservices.thesoiree",
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/logo-square.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b6d10534-094b-4d7e-9c1c-6af3c79eb080"
+      }
+    },
+    "plugins": [
+      "expo-barcode-scanner",
+      "expo-font",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app needs access to your photos to let you share them in reviews."
+        }
+      ]
+    ]
+  }
+}
