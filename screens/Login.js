@@ -6,22 +6,20 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { SLogin } from '../styles/SLogin';
 import { UserContext } from '../UserContext';
 import { useNavigation } from '@react-navigation/native';
-import { BASE_URL } from '../screens/mobile_config'; // Adjust path as needed
+import { BASE_URL } from '../screens/mobile_config';
 
 export default function Login() {
   const navigation = useNavigation();
   const { setLoggedInUser } = useContext(UserContext);
 
-  // States for inputs and UI toggles
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [checked, setChecked] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
-  // Login handler with API call
   const handleLogin = async () => {
-    setErrorMessage(''); // reset error
+    setErrorMessage('');
 
     if (!username || !password) {
       setErrorMessage('Please enter username and password.');
@@ -74,15 +72,16 @@ export default function Login() {
           {/* HEADER TEXT */}
           <View style={SLogin.bmaintext}>
             <Text style={SLogin.maintext}>THE SOIREE</Text>
-            <Text style={{ fontFamily: 'inria', alignSelf: 'center' }}>
+            <Text style={{ fontFamily: 'inria', alignSelf: 'center', fontSize: 12 }}>
               BY NIKE'S CATERING SERVICES
             </Text>
           </View>
 
           {/* CREDENTIALS FORM */}
           <View style={SLogin.credentials}>
-
-            <Text style={{ marginLeft: 15, fontFamily: 'jostsemi' }}>WELCOME BACK</Text>
+            <Text style={{ marginLeft: 15, fontFamily: 'jostsemi', fontSize: 16 }}>
+              WELCOME BACK
+            </Text>
 
             {/* USERNAME INPUT */}
             <View style={SLogin.credgroup}>
@@ -91,7 +90,7 @@ export default function Login() {
                 source={require('../assets/icons/usericon.png')}
               />
               <TextInput
-                style={[SLogin.credinput, { fontFamily: 'inria', width: '85%' }]}
+                style={[SLogin.credinput, { fontFamily: 'inria', width: '85%', fontSize: 16 }]}
                 placeholder="Enter Username"
                 maxLength={50}
                 value={username}
@@ -108,7 +107,7 @@ export default function Login() {
                 source={require('../assets/icons/passwordicon.png')}
               />
               <TextInput
-                style={[SLogin.credinput, { fontFamily: 'inria', flex: 1 }]}
+                style={[SLogin.credinput, { fontFamily: 'inria', flex: 1, fontSize: 16 }]}
                 placeholder="Enter Password"
                 maxLength={50}
                 secureTextEntry={!showPassword}
@@ -176,10 +175,8 @@ export default function Login() {
               style={{ color: 'blue' }}
               onPress={() => Linking.openURL('https://www.facebook.com/ysmndomingo')}
             >
-              {' '}
-              HERE
-            </Text>
-            .
+              {' '}HERE
+            </Text>.
           </Text>
 
         </View>
