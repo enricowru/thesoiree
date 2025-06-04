@@ -1,9 +1,10 @@
 import React, { useState, useContext } from "react";
 import { View, Text, TextInput, TouchableOpacity, Alert } from "react-native";
-import { MaterialIcons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
-import { SLogin } from '../styles/SLogin';
+import { MaterialIcons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
+import { SLogin } from "../styles/SLogin";
 import { UserContext } from "../UserContext";
+import { BASE_URL } from "../screens/mobile_config"; // Make sure this path is correct
 
 const Login = () => {
   const navigation = useNavigation();
@@ -16,7 +17,7 @@ const Login = () => {
     try {
       console.log("Attempting login...");
 
-      const response = await fetch("http://192.168.1.10:3000/login", { // Dito niyo lagay yung ip if mag E2E test kayo outside the current device apply it on all js.script containing ip address gets?
+      const response = await fetch(`${BASE_URL}/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -24,7 +25,16 @@ const Login = () => {
         body: JSON.stringify({ username, password })
       });
 
-      const data = await response.json();
+      let data;
+      try {
+        data = await response.json();
+      } catch (jsonError) {
+        const rawText = await response.text();
+        console.error("Non-JSON response:", rawText);
+        Alert.alert("Server Error", "Unexpected server response. Contact support.");
+        return;
+      }
+
       console.log("Response received:", data);
 
       if (response.ok) {
@@ -36,7 +46,7 @@ const Login = () => {
       }
     } catch (error) {
       console.error("Login error:", error.message);
-      Alert.alert("Error", "Could not connect to the server.");
+      Alert.alert("Network Error", "Could not connect to the server.");
     }
   };
 
