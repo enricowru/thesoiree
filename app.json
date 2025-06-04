@@ -2,6 +2,7 @@
   "expo": {
     "name": "The Soiree",
     "slug": "thesoiree",
+    "sdkVersion": "53.0.0",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/logo-round.png",

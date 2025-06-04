@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { UserContext } from "../UserContext"; // adjust path as needed
 
-export default function Profile() {
+export default function Profile({ navigation }) {
   const { loggedInUser } = useContext(UserContext);
 
   if (!loggedInUser) {
