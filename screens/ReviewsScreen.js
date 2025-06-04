@@ -1,4 +1,4 @@
-// screens/ReviewsScreen.js
+// This is the one you should use:
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 
