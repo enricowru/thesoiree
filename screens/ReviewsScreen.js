@@ -6,7 +6,7 @@ const ReviewsScreen = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch('https://your-backend-url.com/api/approved-reviews/')
+    fetch('https://api-mk8z.onrender.com/api/approved-reviews/')
       .then((response) => response.json())
       .then((data) => setReviews(data))
       .catch((error) => {
